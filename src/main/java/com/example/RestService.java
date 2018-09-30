@@ -2,7 +2,6 @@ package com.example;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,5 +32,10 @@ public interface RestService {
 //			@RequestParam(name = "usercode", required = true) String usercode,
 //			@RequestParam(name = "phone", required = true) Long phone,
 //			@RequestParam(name = "age", required = false) Integer age) throws Exception;
-
+	@GetMapping("/delivery")
+	@ResponseBody
+	public Delivery getDelivery(@RequestParam(name = "conID") String conID);
+	@GetMapping("/pickup")
+	@ResponseBody
+	public Pickup getPickup(@RequestParam(name = "conID") String conID);
 }

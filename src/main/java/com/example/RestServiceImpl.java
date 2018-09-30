@@ -14,7 +14,11 @@ public class RestServiceImpl implements RestService {
 //
 //	@Autowired
 //	private CreateUserAccountService createUserAccountService;
-
+	@Autowired
+	private DeliveryService deliverDervice;
+	@Autowired
+	private PickupService pickService;
+	
 	public RestServiceImpl() {
 		// needed for autowiring
 	}
@@ -30,5 +34,16 @@ public class RestServiceImpl implements RestService {
 //		 log.debug(ApplicationConstants.LOG_ENTRY_MESSAGE);
 //		return createUserAccountService.createUserAccount(firstname, lastname, dob, gender, address, city, state, zip, email, userid, password,usertype,usercode, phone, age);
 //	}
+	
+	@Override
+	public Delivery getDelivery(String conID) {
+//		 log.debug(ApplicationConstants.LOG_ENTRY_MESSAGE);
+		return deliverDervice.getDelivery(conID);
+	}
+	@Override
+	public Pickup getPickup(String conID) {
+//		 log.debug(ApplicationConstants.LOG_ENTRY_MESSAGE);
+		return pickService.getPickup(conID);
+	}
 
 }
